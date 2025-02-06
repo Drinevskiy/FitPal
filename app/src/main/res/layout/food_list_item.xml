@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="@dimen/small_margin"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/food_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jura"
+            android:textSize="@dimen/food_name_size"
+            android:layout_marginBottom="@dimen/food_name_cpfc_margin"
+            android:text="Колбаса"/>
+
+        <TextView
+            android:id="@+id/food_cpfc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jura"
+            android:text="212/15/9/32" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageViewLike"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="like"
+        app:srcCompat="@drawable/baseline_like_24" />
+
+    <ImageView
+        android:id="@+id/imageViewDelete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="delete"
+        app:srcCompat="@drawable/outline_delete_24" />
+
+</LinearLayout>
