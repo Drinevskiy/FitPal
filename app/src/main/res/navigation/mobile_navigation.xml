@@ -11,12 +11,17 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_add_product"
         android:name="by.drinevskiy.fitpal.presentation.add.AddFragment"
         tools:layout="@layout/fragment_add" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="by.drinevskiy.fitpal.presentation.notifications.NotificationsFragment"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_kitchen"
+        android:name="by.drinevskiy.fitpal.presentation.kitchen.KitchenFragment"
+        tools:layout="@layout/fragment_kitchen" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="by.drinevskiy.fitpal.presentation.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -8,12 +8,17 @@
         />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_add_product"
         android:icon="@drawable/outline_add_circle_48"
         android:title="@string/title_add_product" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_kitchen"
+        android:icon="@drawable/baseline_kitchen_24"
+        android:title="@string/title_add_product" />
+
+    <item
+        android:id="@+id/navigation_profile"
         android:icon="@drawable/outline_account_circle_24"
         android:title="@string/title_profile" />
 

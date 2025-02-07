@@ -40,12 +40,4 @@
         android:contentDescription="like"
         app:srcCompat="@drawable/baseline_like_24" />
 
-    <ImageView
-        android:id="@+id/imageViewDelete"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:contentDescription="delete"
-        app:srcCompat="@drawable/outline_delete_24" />
-
 </LinearLayout>

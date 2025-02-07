@@ -1,7 +1,7 @@
 package by.drinevskiy.fitpal.domain.model
 
 data class FoodListItem(
-    val id: Int,
+    val id: Int? = null,
     val name: String,
     val weight: Double,
     val ccal: Int,

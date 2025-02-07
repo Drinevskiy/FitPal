@@ -8,8 +8,7 @@ import by.drinevskiy.fitpal.R
 import by.drinevskiy.fitpal.databinding.FoodListItemBinding
 import by.drinevskiy.fitpal.domain.model.FoodListItem
 
-class FoodAdapter(private val onLikeClick: (FoodListItem) -> Unit,
-                  private val onDeleteClick: (FoodListItem) -> Unit) : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
+class FoodAdapter(private val onLikeClick: (FoodListItem) -> Unit) : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
     var data: List<FoodListItem> = emptyList()
         set(value) {
@@ -34,7 +33,7 @@ class FoodAdapter(private val onLikeClick: (FoodListItem) -> Unit,
         val context = holder.itemView.context
         with(holder.binding){
             val color = if (food.isLiked) R.color.md_theme_errorContainer_mediumContrast else R.color.md_theme_outline
-            foodName.text = food.name
+            foodName.text = context.getString(R.string.food_name_format, food.name, food.weight)
             foodCpfc.text = context.getString(R.string.food_cpfc_format, food.ccal, food.protein, food.fat, food.carbons)
             imageViewLike.setColorFilter(
                 ContextCompat.getColor(context, color),
@@ -43,12 +42,6 @@ class FoodAdapter(private val onLikeClick: (FoodListItem) -> Unit,
             imageViewLike.setOnClickListener {
                 onLikeClick(food)
             }
-            imageViewDelete.setColorFilter(ContextCompat.getColor(context, R.color.md_theme_outline),
-                android.graphics.PorterDuff.Mode.SRC_IN)
-            imageViewDelete.setOnClickListener{
-                onDeleteClick(food)
-            }
-//            foodCpfc.text = "${food.ccal}/${food.protein}/${food.fat}/${food.carbons}"
         }
     }
 }
