@@ -5,6 +5,7 @@
     <string name="title_kitchen">Кухня</string>
     <string name="title_profile">Профиль</string>
     <string name="add_product">Добавить продукт</string>
+    <string name="scan_barcode">Сканировать</string>
     <string name="add_snack">Добавить перекус</string>
     <string name="cancel">Отмена</string>
     <string name="save">Сохранить</string>
@@ -12,7 +13,7 @@
     <string name="food_name_format">%1$s, %2$.1fг</string>
     <string name="food_cpfc_format">%1$d/%2$.1f/%3$.1f/%4$.1f</string>
 
-    <string name="purchase_cost_weight_format">%1$.1fр., %2$.1fг</string>
+    <string name="purchase_cost_weight_format">%1$.2fр., %2$.2fг</string>
 
     <string name="hint_name">Название</string>
     <string name="hint_weight">Вес</string>

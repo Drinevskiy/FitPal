@@ -34,7 +34,7 @@ class FoodAdapter(private val onLikeClick: (FoodListItem) -> Unit) : RecyclerVie
         with(holder.binding){
             val color = if (food.isLiked) R.color.md_theme_errorContainer_mediumContrast else R.color.md_theme_outline
             foodName.text = context.getString(R.string.food_name_format, food.name, food.weight)
-            foodCpfc.text = context.getString(R.string.food_cpfc_format, food.ccal, food.protein, food.fat, food.carbons)
+            foodCpfc.text = context.getString(R.string.food_cpfc_format, food.kcal, food.protein, food.fat, food.carbons)
             imageViewLike.setColorFilter(
                 ContextCompat.getColor(context, color),
                 android.graphics.PorterDuff.Mode.SRC_IN

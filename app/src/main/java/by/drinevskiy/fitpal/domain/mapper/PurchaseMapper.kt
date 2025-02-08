@@ -7,14 +7,18 @@ import by.drinevskiy.fitpal.domain.model.PurchaseListItem
 import javax.inject.Inject
 
 class PurchaseMapper @Inject constructor(private val foodMapper: FoodMapper) {
-    fun mapToDomain(purchaseEntity: PurchaseEntity): PurchaseListItem {
-        val foods = foodMapper.mapToDomainList(purchaseEntity.foods)
-        return PurchaseListItem(
-            date = purchaseEntity.dateTime,
-            foods = foods,
-            weight = foods.sumOf { it.weight }, // Вес от 50 до 500 грамм
-            cost = foods.sumOf { it.cost }, // Стоимость от 1 до 20
-        )
+    fun mapToDomain(purchaseEntity: PurchaseEntity?): PurchaseListItem {
+        purchaseEntity?.let { item ->
+            val foods = foodMapper.mapToDomainList(item.foods)
+            return PurchaseListItem(
+                id = item.id,
+                date = item.dateTime,
+                foods = foods,
+                weight = foods.sumOf { it.weight }, // Вес от 50 до 500 грамм
+                cost = foods.sumOf { it.cost }, // Стоимость от 1 до 20
+            )
+        }
+        return PurchaseListItem()
     }
 
     fun mapToData(purchaseListItem: PurchaseListItem): PurchaseEntity {

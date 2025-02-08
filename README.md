@@ -33,4 +33,4 @@ FitPal is an Android application designed to help users track their calorie inta
 - **UI**: XML
 - **Networking**: Retrofit (for API requests)
 - **Dependency Injection**: Hilt
-- **Architecture**: MVVM (assumed; update if different)
+- **Architecture**: MVVM 

@@ -13,6 +13,9 @@ interface PurchaseDao {
     @Query("SELECT * FROM purchases")
     fun getAllPurchases(): Flow<List<PurchaseEntity>>
 
+    @Query("SELECT * FROM purchases WHERE id = :id")
+    fun getPurchaseById(id: Int): PurchaseEntity?
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPurchase(purchaseEntity: PurchaseEntity)
 }

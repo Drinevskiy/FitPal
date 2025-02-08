@@ -33,3 +33,9 @@ class AddPurchaseUseCase @Inject constructor(private val purchaseRepository: IPu
         purchaseRepository.addPurchase(purchaseMapper.mapToData(purchaseListItem))
     }
 }
+
+class GetPurchaseByIdUseCase @Inject constructor(private val purchaseRepository: IPurchaseRepository, private val purchaseMapper: PurchaseMapper){
+    suspend operator fun invoke(id: Int): PurchaseListItem{
+        return purchaseMapper.mapToDomain(purchaseRepository.getPurchaseById(id))
+    }
+}

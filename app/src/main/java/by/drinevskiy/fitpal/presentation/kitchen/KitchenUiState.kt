@@ -7,4 +7,5 @@ data class KitchenUiState(
     val purchaseList: List<PurchaseListItem> = listOf(),
     val isLoading: Boolean = false,
     val errorName: String? = null,
+    val currentPurchase: PurchaseListItem? = null
 )

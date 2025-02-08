@@ -20,6 +20,14 @@ class PurchaseRoomRepositoryImpl @Inject constructor(private val purchaseDao: Pu
         emit(UIResources.Error((it.localizedMessage ?: R.string.load_food_error_message).toString()))
     }
 
+    override suspend fun getPurchaseById(id: Int): PurchaseEntity? {
+        try {
+            return purchaseDao.getPurchaseById(id)
+        } catch (e: Exception){
+            throw e
+        }
+    }
+
     override suspend fun addPurchase(purchaseEntity: PurchaseEntity) {
         try {
            purchaseDao.insertPurchase(purchaseEntity)

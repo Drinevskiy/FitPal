@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 fun CoroutineScope.launchUntilPaused(lifecycleOwner: LifecycleOwner, block: suspend CoroutineScope.() -> Unit){
     val job = launch(block = block)
     lifecycleOwner.lifecycle.addObserver(object : DefaultLifecycleObserver {
-        override fun onPause(owner: LifecycleOwner) {
+        override fun onStop(owner: LifecycleOwner) {
             job.cancel()
             lifecycleOwner.lifecycle.removeObserver(this)
         }

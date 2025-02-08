@@ -24,18 +24,36 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/small_margin"
         android:text="@string/save"
-        app:layout_constraintBottom_toTopOf="@+id/button_add_product"
+        app:layout_constraintBottom_toTopOf="@+id/layout_add_product"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteX="135dp" />
-    <Button
-        android:id="@+id/button_add_product"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/layout_add_product"
+        style="?android:attr/buttonBarStyle"
         android:layout_height="wrap_content"
-        android:text="@string/add_product"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/button_add_product"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/add_product" />
+
+        <Button
+            android:id="@+id/button_scan_product"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/scan_barcode"/>
+    </LinearLayout>
 
 
 

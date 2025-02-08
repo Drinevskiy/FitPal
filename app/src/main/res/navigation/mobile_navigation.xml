@@ -18,10 +18,24 @@
     <fragment
         android:id="@+id/navigation_kitchen"
         android:name="by.drinevskiy.fitpal.presentation.kitchen.KitchenFragment"
-        tools:layout="@layout/fragment_kitchen" />
+        tools:layout="@layout/fragment_kitchen" >
+        <action
+            android:id="@+id/action_navigation_kitchen_to_purchaseDetailFragment"
+            app:destination="@id/purchaseDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="by.drinevskiy.fitpal.presentation.profile.ProfileFragment"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/purchaseDetailFragment"
+        android:name="by.drinevskiy.fitpal.presentation.kitchen.purchase.PurchaseDetailFragment"
+        android:label="fragment_purchase_detail"
+        tools:layout="@layout/fragment_purchase_detail" >
+        <argument
+            android:name="purchaseItem"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>

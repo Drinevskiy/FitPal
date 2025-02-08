@@ -10,7 +10,7 @@ class FoodMapper @Inject constructor() {
             id = foodEntity.id,
             name = foodEntity.name,
             weight = foodEntity.weight, // Вес от 50 до 500 грамм
-            ccal = foodEntity.ccal, // Калории от 50 до 500
+            kcal = foodEntity.kcal, // Калории от 50 до 500
             protein = foodEntity.protein, // Белки от 0 до 30 грамм
             fat = foodEntity.fat, // Жиры от 0 до 20 грамм
             carbons = foodEntity.carbons, // Углеводы от 0 до 100 грамм
@@ -24,7 +24,7 @@ class FoodMapper @Inject constructor() {
             id = foodListItem.id,
             name = foodListItem.name,
             weight = foodListItem.weight, // Вес от 50 до 500 грамм
-            ccal = foodListItem.ccal, // Калории от 50 до 500
+            kcal = foodListItem.kcal, // Калории от 50 до 500
             protein = foodListItem.protein, // Белки от 0 до 30 грамм
             fat = foodListItem.fat, // Жиры от 0 до 20 грамм
             carbons = foodListItem.carbons, // Углеводы от 0 до 100 грамм

@@ -10,7 +10,7 @@ import by.drinevskiy.fitpal.data.dao.PurchaseDao
 import by.drinevskiy.fitpal.data.model.FoodEntity
 import by.drinevskiy.fitpal.data.model.PurchaseEntity
 
-@Database(entities = [FoodEntity::class, PurchaseEntity::class], version = 3)
+@Database(entities = [FoodEntity::class, PurchaseEntity::class], version = 1)
 @TypeConverters(DateConverter::class, FoodConverter::class)
 abstract class FitPalDatabase : RoomDatabase(){
     abstract fun foodDao(): FoodDao

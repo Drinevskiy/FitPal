@@ -2,6 +2,9 @@ package by.drinevskiy.fitpal.presentation.kitchen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+
+//import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import by.drinevskiy.fitpal.R
 import by.drinevskiy.fitpal.databinding.PurchaseListItemBinding
@@ -34,6 +37,10 @@ class PurchaseAdapter: RecyclerView.Adapter<PurchaseAdapter.PurchaseViewHolder>(
         with(holder.binding){
             purchaseCostWeight.text = context.getString(R.string.purchase_cost_weight_format, purchase.cost, purchase.weight)
             purchaseDate.text = purchase.date.format(formatter)
+            holder.itemView.setOnClickListener {
+                val action = KitchenFragmentDirections.actionNavigationKitchenToPurchaseDetailFragment(purchase.id)
+                it.findNavController().navigate(action)
+            }
         }
     }
 }

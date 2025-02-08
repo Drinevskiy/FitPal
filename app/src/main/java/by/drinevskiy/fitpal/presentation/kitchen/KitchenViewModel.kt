@@ -7,6 +7,7 @@ import by.drinevskiy.fitpal.domain.model.PurchaseListItem
 import by.drinevskiy.fitpal.domain.repository.UIResources
 import by.drinevskiy.fitpal.domain.usecase.purchase.AddPurchaseUseCase
 import by.drinevskiy.fitpal.domain.usecase.purchase.GetAllPurchaseUseCase
+import by.drinevskiy.fitpal.domain.usecase.purchase.GetPurchaseByIdUseCase
 import by.drinevskiy.fitpal.presentation.add.AddUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +22,8 @@ import javax.inject.Inject
 @HiltViewModel
 class KitchenViewModel @Inject constructor(
     private val getAllPurchaseUseCase: GetAllPurchaseUseCase,
-    private val addPurchaseUseCase: AddPurchaseUseCase
+    private val addPurchaseUseCase: AddPurchaseUseCase,
+    private val getPurchaseByIdUseCase: GetPurchaseByIdUseCase
 ): ViewModel() {
     private val _uiState = MutableStateFlow(KitchenUiState())
     val uiState = _uiState.asStateFlow()
@@ -59,5 +61,21 @@ class KitchenViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun getPurchaseById(id: Int){
+        _uiState.update { it.copy(isLoading = true) }
+        viewModelScope.launch(Dispatchers.IO) {
+            val purchase = getPurchaseByIdUseCase(id)
+            withContext(Dispatchers.Main){
+                _uiState.update {
+                    it.copy(
+                        currentPurchase = purchase,
+                        isLoading = false,
+                    )
+                }
+            }
+        }
+//        return getPurchaseByIdUseCase(id)
     }
 }

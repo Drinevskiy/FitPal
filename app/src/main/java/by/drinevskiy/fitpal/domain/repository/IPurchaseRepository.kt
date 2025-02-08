@@ -6,5 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface IPurchaseRepository {
     fun getAllPurchase(): Flow<UIResources<List<PurchaseEntity>>>
+    suspend fun getPurchaseById(id: Int): PurchaseEntity?
     suspend fun addPurchase(purchaseEntity: PurchaseEntity)
 }
