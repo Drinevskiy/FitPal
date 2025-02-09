@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.kitchen.purchase.PurchaseDetailFragment">
+    android:orientation="vertical"
+    android:layout_marginHorizontal="@dimen/large_margin"
+    tools:context=".presentation.profile.purchase.PurchaseDetailFragment">
+
+    <TextView
+        android:id="@+id/text_purchase_cost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/jura"
+        android:textColor="@color/md_theme_onBackground"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/text_purchase_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/material_on_background_disabled"
+        android:fontFamily="@font/andika"
+        android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/purchase_detail_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
-
-</FrameLayout>
+</LinearLayout>

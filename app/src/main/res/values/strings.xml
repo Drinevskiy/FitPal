@@ -4,7 +4,7 @@
     <string name="title_add_product">Добавить</string>
     <string name="title_kitchen">Кухня</string>
     <string name="title_profile">Профиль</string>
-    <string name="add_product">Добавить продукт</string>
+    <string name="add_product">Добавить</string>
     <string name="scan_barcode">Сканировать</string>
     <string name="add_snack">Добавить перекус</string>
     <string name="cancel">Отмена</string>
@@ -15,9 +15,16 @@
 
     <string name="purchase_cost_weight_format">%1$.2fр., %2$.2fг</string>
 
+    <string name="purchase_detail_cost_format">%1$.2fр.</string>
+    <string name="purchase_detail_name_cost_format">%1$s, %2$.2fр.</string>
+    <string name="purchase_detail_weight_format">%1$.2fг</string>
+    <string name="purchase_detail_energy_format">%1$d/%2$dккал</string>
+    <string name="purchase_detail_pfc_format">%1$.2f/%2$.2fг</string>
+
     <string name="hint_name">Название</string>
     <string name="hint_weight">Вес</string>
-    <string name="hint_ccal">Ккал</string>
+    <string name="hint_kcal">Ккал</string>
+    <string name="hint_energy">Энергия</string>
     <string name="hint_protein">Белки</string>
     <string name="hint_fat">Жиры</string>
     <string name="hint_carbon">Углеводы</string>
@@ -26,4 +33,5 @@
 
     <string name="load_food_error_message">Ошибка загрузки еды из базы данных</string>
     <string name="enter_value_error_message">Заполните поле</string>
+    <string name="content_description_add_dish">add_dish</string>
 </resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="4"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/fridge_food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/jura"
+        android:textColor="@color/md_theme_onBackground"
+        android:textSize="@dimen/food_name_size"
+        android:layout_marginBottom="@dimen/food_name_cpfc_margin"/>
+
+    <TextView
+        android:id="@+id/fridge_food_cpfc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/jura"
+        android:textColor="@color/material_on_background_emphasis_high_type"/>
+</LinearLayout>
+

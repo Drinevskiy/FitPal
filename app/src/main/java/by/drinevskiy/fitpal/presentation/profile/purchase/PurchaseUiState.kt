@@ -1,9 +1,8 @@
-package by.drinevskiy.fitpal.presentation.kitchen
+package by.drinevskiy.fitpal.presentation.profile.purchase
 
-import by.drinevskiy.fitpal.domain.model.FoodListItem
 import by.drinevskiy.fitpal.domain.model.PurchaseListItem
 
-data class KitchenUiState(
+data class PurchaseUiState(
     val purchaseList: List<PurchaseListItem> = listOf(),
     val isLoading: Boolean = false,
     val errorName: String? = null,

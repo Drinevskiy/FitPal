@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
-        android:hint="@string/hint_ccal">
+        android:hint="@string/hint_kcal">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

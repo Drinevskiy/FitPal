@@ -7,5 +7,5 @@ data class PurchaseListItem(
     val cost: Double = 0.0,
     val weight: Double = 0.0,
     val date: LocalDateTime = LocalDateTime.now(),
-    val foods: List<FoodListItem> = listOf(),
+    val foods: List<PurchaseDetailListItem> = listOf(),
 )

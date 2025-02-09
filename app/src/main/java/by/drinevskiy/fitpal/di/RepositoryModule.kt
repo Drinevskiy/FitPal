@@ -1,10 +1,13 @@
 package by.drinevskiy.fitpal.di
 
 import by.drinevskiy.fitpal.data.dao.FoodDao
+import by.drinevskiy.fitpal.data.dao.FridgeFoodDao
 import by.drinevskiy.fitpal.data.dao.PurchaseDao
 import by.drinevskiy.fitpal.data.repository.FoodRoomRepositoryImpl
+import by.drinevskiy.fitpal.data.repository.FridgeFoodRoomRepositoryImpl
 import by.drinevskiy.fitpal.data.repository.PurchaseRoomRepositoryImpl
 import by.drinevskiy.fitpal.domain.repository.IFoodRepository
+import by.drinevskiy.fitpal.domain.repository.IFridgeFoodRepository
 import by.drinevskiy.fitpal.domain.repository.IPurchaseRepository
 import dagger.Module
 import dagger.Provides
@@ -24,5 +27,10 @@ object RepositoryModule {
     @Provides
     fun providePurchaseRepository(purchaseDao: PurchaseDao): IPurchaseRepository{
         return PurchaseRoomRepositoryImpl(purchaseDao)
+    }
+    @Singleton
+    @Provides
+    fun provideFridgeFoodRepository(fridgeFoodDao: FridgeFoodDao): IFridgeFoodRepository{
+        return FridgeFoodRoomRepositoryImpl(fridgeFoodDao)
     }
 }

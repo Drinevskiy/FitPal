@@ -6,11 +6,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import by.drinevskiy.fitpal.domain.model.FoodListItem
+import by.drinevskiy.fitpal.domain.model.FridgeFoodItem
 import by.drinevskiy.fitpal.domain.repository.UIResources
 import by.drinevskiy.fitpal.domain.usecase.food.AddFoodUseCase
 import by.drinevskiy.fitpal.domain.usecase.food.GetAllFoodUseCase
 import by.drinevskiy.fitpal.domain.usecase.food.RemoveAllFoodUseCase
 import by.drinevskiy.fitpal.domain.usecase.food.RemoveFoodUseCase
+import by.drinevskiy.fitpal.domain.usecase.fridgeFood.GetFridgeFoodByNameUseCase
+import by.drinevskiy.fitpal.domain.usecase.fridgeFood.InsertOrUpdateFridgeFoodUseCase
+import by.drinevskiy.fitpal.domain.usecase.fridgeFood.UpdateFridgeFoodUseCase
 import by.drinevskiy.fitpal.domain.usecase.openFood.GetProductByBarcode
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -30,7 +34,10 @@ class AddViewModel @Inject constructor(
     private val addFoodUseCase: AddFoodUseCase,
     private val removeFoodUseCase: RemoveFoodUseCase,
     private val removeAllFoodUseCase: RemoveAllFoodUseCase,
-    private val getProductByBarcode: GetProductByBarcode
+    private val getProductByBarcode: GetProductByBarcode,
+    private val getFridgeFoodByNameUseCase: GetFridgeFoodByNameUseCase,
+    private val updateFridgeFoodUseCase: UpdateFridgeFoodUseCase,
+    private val insertOrUpdateFridgeFoodUseCase: InsertOrUpdateFridgeFoodUseCase,
 ): ViewModel() {
     private val _uiState = MutableStateFlow(AddUiState())
     val uiState = _uiState.asStateFlow()
@@ -60,6 +67,8 @@ class AddViewModel @Inject constructor(
         _uiState.update { it.copy(isLoading = true) }
         viewModelScope.launch(Dispatchers.IO) {
             addFoodUseCase(foodListItem)
+            insertOrUpdateFridgeFoodUseCase(foodListItem)
+
 //            var updatedFoodList = emptyList<FoodListItem>()
 //            getAllFoodUseCase().collectLatest {
 //                updatedFoodList = when(it){
@@ -124,6 +133,13 @@ class AddViewModel @Inject constructor(
             }
         }
     }
+
+//    fun updateFridgeFood(fridgeFoodItem: FridgeFoodItem){
+//        _uiState.update { it.copy(isLoading = true) }
+//        viewModelScope.launch(Dispatchers.IO) {
+//            insertOrUpdateFridgeFoodUseCase(fridgeFoodItem)
+//        }
+//    }
 
     fun likeFood(it: FoodListItem) {
 

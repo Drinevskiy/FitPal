@@ -7,4 +7,6 @@
     <dimen name="large_margin">16dp</dimen>
     <dimen name="food_name_cpfc_margin">8dp</dimen>
     <dimen name="food_name_size">24sp</dimen>
+    <dimen name="food_detail_size">16sp</dimen>
+    <dimen name="card_corner_radius">24dp</dimen>
 </resources>

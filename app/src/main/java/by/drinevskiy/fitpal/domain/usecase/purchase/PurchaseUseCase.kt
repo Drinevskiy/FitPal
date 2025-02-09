@@ -4,6 +4,7 @@ import androidx.room.Insert
 import by.drinevskiy.fitpal.domain.mapper.FoodMapper
 import by.drinevskiy.fitpal.domain.mapper.PurchaseMapper
 import by.drinevskiy.fitpal.domain.model.FoodListItem
+import by.drinevskiy.fitpal.domain.model.PurchaseDetailListItem
 import by.drinevskiy.fitpal.domain.model.PurchaseListItem
 import by.drinevskiy.fitpal.domain.repository.IFoodRepository
 import by.drinevskiy.fitpal.domain.repository.IPurchaseRepository

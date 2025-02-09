@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+    android:layout_marginBottom="@dimen/small_margin"
     tools:showIn="@layout/activity_main"
     tools:context=".presentation.add.AddFragment">
 
@@ -40,15 +41,16 @@
 
         <Button
             android:id="@+id/button_add_product"
-            style="?android:attr/buttonBarButtonStyle"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_marginEnd="@dimen/small_margin"
             android:text="@string/add_product" />
 
         <Button
             android:id="@+id/button_scan_product"
-            style="?android:attr/buttonBarButtonStyle"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

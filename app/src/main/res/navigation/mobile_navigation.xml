@@ -16,21 +16,25 @@
         tools:layout="@layout/fragment_add" />
 
     <fragment
-        android:id="@+id/navigation_kitchen"
-        android:name="by.drinevskiy.fitpal.presentation.kitchen.KitchenFragment"
-        tools:layout="@layout/fragment_kitchen" >
+        android:id="@+id/navigation_purchase"
+        android:name="by.drinevskiy.fitpal.presentation.profile.purchase.PurchaseFragment"
+        tools:layout="@layout/fragment_purchase" >
         <action
-            android:id="@+id/action_navigation_kitchen_to_purchaseDetailFragment"
-            app:destination="@id/purchaseDetailFragment" />
+            android:id="@+id/action_navigation_purchase_to_navigation_purchase_detail_fragment"
+            app:destination="@id/navigation_purchase_detail" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="by.drinevskiy.fitpal.presentation.profile.ProfileFragment"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_purchase"
+            app:destination="@id/navigation_purchase" />
+    </fragment>
     <fragment
-        android:id="@+id/purchaseDetailFragment"
-        android:name="by.drinevskiy.fitpal.presentation.kitchen.purchase.PurchaseDetailFragment"
+        android:id="@+id/navigation_purchase_detail"
+        android:name="by.drinevskiy.fitpal.presentation.profile.purchase.PurchaseDetailFragment"
         android:label="fragment_purchase_detail"
         tools:layout="@layout/fragment_purchase_detail" >
         <argument
@@ -38,4 +42,18 @@
             app:argType="integer"
             android:defaultValue="-1" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_kitchen"
+        android:name="by.drinevskiy.fitpal.presentation.kitchen.KitchenFragment"
+        android:label="fragment_kitchen"
+        tools:layout="@layout/fragment_kitchen" >
+        <action
+            android:id="@+id/action_navigation_kitchen_to_fridgeFragment"
+            app:destination="@id/navigation_fridge" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_fridge"
+        android:name="by.drinevskiy.fitpal.presentation.kitchen.fridge.FridgeFragment"
+        android:label="fragment_fridge"
+        tools:layout="@layout/fragment_fridge" />
 </navigation>

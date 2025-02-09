@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.Material3.BottomNavigationView.ActiveIndicator" parent="">
+        <item name="android:width">44dp</item>
+        <item name="android:height">44dp</item>
+        <item name="marginHorizontal">0dp</item>
+        <item name="shapeAppearance">@style/Widget.Material3.BottomNavigationView.ActiveIndicator.Shape.Corner.Full</item>
+        <item name="android:color">@color/md_theme_tertiaryContainer</item>
+    </style>
+    <style name="Widget.Material3.BottomNavigationView.ActiveIndicator.Shape.Corner.Full" parent="">
+        <item name="cornerFamily">?attr/shapeCornerFamily</item>
+        <item name="cornerSize">25%</item>
+    </style>
+</resources>

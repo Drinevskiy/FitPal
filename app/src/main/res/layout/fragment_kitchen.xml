@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.kitchen.KitchenFragment">
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_dish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="24dp"
+        android:contentDescription="@string/content_description_add_dish"
+        app:srcCompat="@drawable/outline_cooking_24"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/purchase_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

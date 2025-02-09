@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="?attr/materialCardViewElevatedStyle"
+    app:cardBackgroundColor="@color/md_theme_surface"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    android:layout_marginBottom="@dimen/medium_margin"
+    app:strokeColor="@color/md_theme_outlineVariant"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/medium_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_food_name_cost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jura"
+            android:gravity="center"
+            android:textSize="@dimen/food_name_size"
+
+            android:textColor="@color/md_theme_onSurface"
+            android:layout_marginBottom="@dimen/small_margin"
+            tools:text="Название, 30р"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/andika"
+                android:textSize="@dimen/food_detail_size"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+
+                android:text="@string/hint_weight" />
+
+            <TextView
+                android:id="@+id/text_weight_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:fontFamily="@font/andika"
+                android:textSize="@dimen/food_detail_size"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+
+                tools:text="23.67г"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_energy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/andika"
+                android:textSize="@dimen/food_detail_size"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+
+                android:text="@string/hint_energy" />
+
+            <TextView
+                android:id="@+id/text_energy_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:fontFamily="@font/andika"
+                android:textSize="@dimen/food_detail_size"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+
+                tools:text="234/813ккал"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_protein"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/andika"
+                android:textSize="@dimen/food_detail_size"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+
+                android:text="@string/hint_protein" />
+
+            <TextView
+                android:id="@+id/text_protein_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:fontFamily="@font/andika"
+                android:textSize="@dimen/food_detail_size"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+
+                tools:text="23.67/34.5г"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_fat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/andika"
+                android:textSize="@dimen/food_detail_size"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+
+                android:text="@string/hint_fat" />
+
+            <TextView
+                android:id="@+id/text_fat_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:fontFamily="@font/andika"
+                android:textSize="@dimen/food_detail_size"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+
+                tools:text="63.65/234.56г"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_carbon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/andika"
+                android:textSize="@dimen/food_detail_size"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+
+                android:text="@string/hint_carbon" />
+
+            <TextView
+                android:id="@+id/text_carbon_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:fontFamily="@font/andika"
+                android:textSize="@dimen/food_detail_size"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+
+                tools:text="62.47/435.45г"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

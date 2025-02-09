@@ -3,6 +3,7 @@ package by.drinevskiy.fitpal.di
 import android.content.Context
 import androidx.room.Room
 import by.drinevskiy.fitpal.data.dao.FoodDao
+import by.drinevskiy.fitpal.data.dao.FridgeFoodDao
 import by.drinevskiy.fitpal.data.dao.PurchaseDao
 import by.drinevskiy.fitpal.data.db.FitPalDatabase
 import dagger.Module
@@ -18,7 +19,10 @@ object DatabaseModule {
     @Singleton
     @Provides
     fun provideDatabase(@ApplicationContext context: Context): FitPalDatabase{
-        return Room.databaseBuilder(context.applicationContext, FitPalDatabase::class.java, "FitPalDatabase").fallbackToDestructiveMigration().build()
+        return Room.databaseBuilder(context.applicationContext, FitPalDatabase::class.java, "FitPalDatabase")
+//            .addMigrations()
+            .fallbackToDestructiveMigration()
+            .build()
     }
 
     @Singleton
@@ -31,5 +35,11 @@ object DatabaseModule {
     @Provides
     fun providePurchaseDao(db: FitPalDatabase): PurchaseDao{
         return db.purchaseDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideFridgeFoodDao(db: FitPalDatabase): FridgeFoodDao{
+        return db.fridgeFoodDao()
     }
 }

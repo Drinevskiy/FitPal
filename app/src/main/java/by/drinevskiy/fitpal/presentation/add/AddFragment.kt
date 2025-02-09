@@ -6,9 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -21,11 +19,11 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.drinevskiy.fitpal.R
 import by.drinevskiy.fitpal.databinding.FragmentAddBinding
+import by.drinevskiy.fitpal.domain.mapper.FoodMapper
 import by.drinevskiy.fitpal.domain.model.FoodListItem
 import by.drinevskiy.fitpal.domain.model.OpenFoodItem
 import by.drinevskiy.fitpal.domain.model.PurchaseListItem
-import by.drinevskiy.fitpal.presentation.kitchen.KitchenViewModel
-import by.drinevskiy.fitpal.presentation.utils.launchUntilPaused
+import by.drinevskiy.fitpal.presentation.profile.purchase.PurchaseViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
@@ -35,6 +33,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class AddFragment : Fragment() {
@@ -45,14 +44,11 @@ class AddFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private lateinit var adapter: FoodAdapter
+
     private val viewModel: AddViewModel by viewModels()
-    private val kitchenViewModel: KitchenViewModel by viewModels()
+    private val purchaseViewModel: PurchaseViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
+    @Inject lateinit var foodMapper: FoodMapper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,48 +70,18 @@ class AddFragment : Fragment() {
                     // Task completed successfully
                     viewModel.loadProductInfoByBarcode(barcode.displayValue)
                     var dialogShown = false
-//                    lifecycleScope.launchUntilPaused(this){
                     viewLifecycleOwner.lifecycleScope.launch {
                         repeatOnLifecycle(Lifecycle.State.STARTED) {
-//                        viewModel.uiState.collect { uiState ->
-//                            uiState.openFoodItem?.let { openFoodItem ->
-//                                if (!dialogShown) {
-//                                    dialogShown = true
-//
-//                                    showAddItemDialog(openFoodItem)
-//                                }
-//                            } ?: run {
-//                                Toast.makeText(requireContext(), "Ошибка сканирования. \nВозможно, штрих-кода нет в базе", Toast.LENGTH_LONG).show()
-//
-//                                // Сброс флага, если openFoodItem становится null
-//                                dialogShown = false
-//                            }
-//                        }
-                            //Гарантируем единственный вызов
                             viewModel.uiState.map { it.openFoodItem }.distinctUntilChanged()
                                 .collect { item ->
-//                            showAddItemDialog(item)
                                     Log.i("AddFragment", "showDialog" + item.toString())
                                     currentDialog?.dismiss()
                                     item?.let {
                                         currentDialog = showAddItemDialog(item)
                                     }
-//                                showAddItemDialog()
-//                                Snackbar.make(requireActivity().window.decorView.findViewById<View>(android.R.id.content), "Ошибка сканирования. \nВозможно, штрих-кода нет в базе", Snackbar.LENGTH_INDEFINITE)
-//                                    .setDuration(1500)
-//                                    .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
-//                                    .setTextMaxLines(2)
-////                                    .setAnchorView(R.id.nav_view)
-//                                    .show()
-//                            }
-//                            uiState.openFoodItem?.let { openFoodItem ->
-//                                showAddItemDialog(openFoodItem)
-//                            }
-//                            return@collect // Завершаем дальнейшую обработку
                                 }
                         }
                     }
-//                    showAddItemDialog(viewModel.uiState.value.openFoodItem)
                 }
                 .addOnCanceledListener {
                     Snackbar.make(binding.root, "Сканирование отменено", Snackbar.LENGTH_INDEFINITE)
@@ -134,7 +100,7 @@ class AddFragment : Fragment() {
 
         }
         binding.buttonSaveCart.setOnClickListener {
-            kitchenViewModel.addPurchase(PurchaseListItem(foods = viewModel.uiState.value.foodList))
+            purchaseViewModel.addPurchase(PurchaseListItem(foods = foodMapper.mapPurchaseDetailListToFoodList(viewModel.uiState.value.foodList)))
             Snackbar.make(binding.root, "Продукты добавлены", Snackbar.LENGTH_INDEFINITE)
                 .setDuration(1500)
                 .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
